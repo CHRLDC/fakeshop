@@ -9,8 +9,8 @@ export default function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/produit/:id" element={<ProductDetailPage />} />
-        <Route path="/panier" element={<CartPage />} />
+        <Route path="/product/:id" element={<ProductDetailPage />} />
+        <Route path="/cart" element={<CartPage />} />
       </Routes>
     </Router>
   );

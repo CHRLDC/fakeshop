@@ -1,0 +1,52 @@
+.container-card {
+    width: 162px;
+    height: 288px;
+    border-radius: 8px;
+    padding: 8px;
+    background-color: var(--color-white);
+}
+
+.container-card a {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.container-card h2 {
+    font-family: var(--font-primary);
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.45em;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.container-img-card {
+    width: 100%;
+    height: 185px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.price-item {
+    width: fit-content;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 21.78px;
+    color: var(--color-yellow);
+    background-color: var(--color-brown);
+    text-align: center;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.container-title-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 2.7em;
+}

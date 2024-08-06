@@ -1,0 +1,19 @@
+.quantity-btn {
+    width: 26px;
+    background-color: var(--color-lightgrey);
+    height: 26px;
+    font-size: 16px;
+    border-radius: 4px;
+    color: var(--color-brown);
+    border: none;
+    cursor: pointer;
+}
+
+.quantity-btn:active {
+    background-color: var(--color-white);
+}
+
+.quantity-value {
+    margin: 0 12px;
+    font-size: 16px;
+}

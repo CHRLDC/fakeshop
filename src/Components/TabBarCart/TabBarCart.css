@@ -1,0 +1,38 @@
+.container-tapbarcart {
+    width: 100%;
+    padding: 32px 20px 50px 20px;
+    background-color: var(--color-brown);
+    border-radius: 32px 32px 0 0;
+    color: var(--color-white);
+    position: fixed;
+    bottom: 0px;
+    left: 0;
+}
+
+.picto-cart {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.visa {
+    background-image: url('../../assets/img/Visa.png');
+}
+
+.mastercard {
+    background-image: url('../../assets/img/MasterCard.png');
+}
+
+.paypal {
+    background-image: url('../../assets/img/PayPal.png');
+}
+
+.price-total {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-yellow);
+}

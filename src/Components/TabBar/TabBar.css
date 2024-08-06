@@ -1,0 +1,47 @@
+.tab-picto {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.home {
+    background-image: url('../../assets/img/Home.png');
+}
+
+.cart {
+    background-image: url('../../assets/img/Shopping-Cart.png');
+}
+
+.profil {
+    background-image: url('../../assets/img/Customer.png');
+}
+
+.parametre {
+    background-image: url('../../assets/img/Settings.png');
+}
+
+.tab-notif {
+    position: absolute;
+    top: 28px;
+    left: 138px;
+    color: var(--color-yellow);
+    border-radius: 50%;
+    padding: 2px 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.container-TabBar {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 63px;
+    background-color: var(--color-white);
+    box-shadow: 1px -1px 10px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 32px 32px 0 0;
+    padding: 20px;
+}

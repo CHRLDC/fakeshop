@@ -1,0 +1,77 @@
+.button {
+    width: fit-content;
+    display: inline-flex;
+    font-family: var(--font-primary);
+    font-weight: 400;
+    border: none;
+    border-radius: 19px;
+    color: var(--color-white);
+    cursor: pointer;
+    font-size: 16px;
+    padding: 8px 64px;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.button.cta {
+    background-color: var(--color-yellow);
+}
+
+.button.cta:hover {
+    background-color: var(--color-lightgrey);
+}
+
+.button.category {
+    background-color: var(--color-brown);
+    width: 100px;
+    padding: 14px 32px;
+}
+
+.button.category:hover {
+    background-color: var(--color-lightgrey);
+}
+
+.button.add-to-cart {
+    background-color: var(--color-yellow);
+}
+
+.button.add-to-cart:hover {
+    background-color: var(--color-lightgrey);
+}
+
+.button.payment {
+    background-color: var(--color-yellow);
+}
+
+.button.payment:hover {
+    background-color: var(--color-lightgrey);
+}
+
+.button.remove-from-cart {
+    background-color: var(--color-lightgrey);
+}
+
+.button.remove-from-cart:hover {
+    background-color: #4e4e4e;
+}
+
+.picto-button {
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 22px;
+    height: 22px;
+}
+
+.picto-addToCart {
+    background-image: url('../../assets/img/Shopping-Cart-white.png');
+}
+
+.picto-payment {
+    background-image: url('../../assets/img/Coins.png');
+}
+
+.picto-removeFromCart {
+    background-image: url('../../assets/img/EmptyTrash.png');
+}
