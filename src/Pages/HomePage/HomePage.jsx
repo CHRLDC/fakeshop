@@ -16,10 +16,12 @@ export default function HomePage() {
     const [filteredProducts, setFilteredProducts] = useState(products);
     // Définir la catégorie par défaut
     const [selectedCategory, setSelectedCategory] = useState('All');
+    // Définir filtre vide
+    const [emptyFiltre, setEmptyFiltre] = useState(true);
 
     // Gère l'affichage de la barre de recherche
     const toggleSearchBar = () => {
-        // inverser l'état de la barre de recherche
+        // Inverser l'état de la barre de recherche
         setShowSearchBar(!showSearchBar);
     };
 
@@ -34,7 +36,7 @@ export default function HomePage() {
             // Si le terme de recherche est vide, afficher tous les produits
             setFilteredProducts(products);
         } else {
-            // Rechercher dans le titre si le term existe
+            // Rechercher dans le titre si le terme existe
             const filtered = products.filter(product =>
                 product.title && product.title.toLowerCase().includes(searchTerm.toLowerCase())
             );
@@ -46,14 +48,19 @@ export default function HomePage() {
     const filterByCategory = (category) => {
         setSelectedCategory(category);
         if (category === 'All') {
-            // Afficher tous les produits sur All
+            // Afficher tous les produits si la catégorie est 'All'
             setFilteredProducts(products);
         } else {
-            // Filtrer en fonction de la categorie choisie
+            // Filtrer en fonction de la catégorie choisie
             const filtered = products.filter(product => product.category === category);
             setFilteredProducts(filtered);
         }
     };
+
+    // Vérifier si le filtre est vide
+    useEffect(() => {
+        setEmptyFiltre(filteredProducts.length === 0);
+    }, [filteredProducts]);
 
     return (
         <div className="app-container">
@@ -83,7 +90,13 @@ export default function HomePage() {
                 {showSearchBar && <SearchBar onClose={toggleSearchBar} onSearch={handleSearch} />}
             </div>
             {/* Liste des produits filtrés, All par défaut */}
-            <ProductList products={filteredProducts} />
+            <div>
+                {emptyFiltre ? (
+                    <p className="flex justify-center mT20">No products matching your criteria</p>
+                ) : (
+                    <ProductList products={filteredProducts} />
+                )}
+            </div>
             {/* Barre d'onglets en bas de la page */}
             <div className="container-tab-bar">
                 <TabBar />

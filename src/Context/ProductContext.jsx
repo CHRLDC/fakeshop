@@ -13,7 +13,6 @@ export default function ProductProvider({ children }) {
                 const response = await fetch('https://fakestoreapi.com/products?limit=10');
                 const data = await response.json();
                 setProducts(data);
-                console.log(data);
             } catch (error) {
                 console.error('Erreur lors du chargement des produits:', error);
             }
