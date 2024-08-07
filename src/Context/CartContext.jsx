@@ -19,7 +19,6 @@ export default function CartProvider({ children }) {
         setListCart(cartList.filter((item) => item.id !== product.id));
         console.log('Produit supprimé du panier');
     };
-
     return (
         <CartContext.Provider value={{ cartList, addToListCart, removeFromListCart }}>
             {children}

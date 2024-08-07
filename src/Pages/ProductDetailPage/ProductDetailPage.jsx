@@ -12,12 +12,13 @@ export default function ProductDetailPage() {
     const { id } = useParams();
     const { products } = useContext(ProductContext);
     const product = products.find(p => p.id === parseInt(id));
-    const { cartList, addToListCart, removeFromListCart } = useContext(CartContext);
+    const { cartList, addToListCart, removeToListCart } = useContext(CartContext);
 
     // Vérifie si le produit est déjà dans le panier
     const isInCart = () => {
         return cartList && cartList.some(cartItem => cartItem.id === product.id);
     };
+
 
     return (
         <>
@@ -49,7 +50,7 @@ export default function ProductDetailPage() {
                             </div>
                             <div className="flex justify-center">
                                 {isInCart() ? (
-                                    <Button type="removeFromCart" onClick={() => removeFromListCart(product)}>
+                                    <Button type="removeFromCart" onClick={() => removeToListCart(product)}>
                                         Remove from Cart
                                     </Button>
                                 ) : (
@@ -62,7 +63,7 @@ export default function ProductDetailPage() {
                     </div>
                 </div>
             ) : (
-                <p>Désolé, Ce produit n'existe pas.</p>
+                <p>Désolé, Ce produit n'éxiste pas.</p>
             )}
         </>
     );
