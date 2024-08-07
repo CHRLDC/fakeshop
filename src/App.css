@@ -70,6 +70,15 @@
     height: 24px;
 }
 
+.picto-cross {
+    background-image: url('./assets/img/Close.png');
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 24px;
+    height: 24px;
+}
+
 .title {
     font-size: 24px;
     font-weight: 700;

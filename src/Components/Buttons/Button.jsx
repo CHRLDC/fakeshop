@@ -20,7 +20,7 @@ export default function Button({ type, children, onClick }) {
         }
     };
 
-    const showIcon = ['add-to-cart', 'payment', 'remove-from-cart'].includes(type);
+    const showIcon = ['addToCart', 'payment', 'removeFromCart'].includes(type);
 
     return (
         <button

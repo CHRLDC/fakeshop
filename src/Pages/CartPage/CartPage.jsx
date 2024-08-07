@@ -8,7 +8,8 @@ import TabBar from '../../Components/TabBar/TabBar';
 
 export default function CartPage() {
     // Donner la liste du panier
-    const { CartList } = useContext(CartContext);
+    const { cartList } = useContext(CartContext);
+    console.log(cartList);
 
     return (
         <div className="container-cart">
@@ -17,11 +18,11 @@ export default function CartPage() {
                 <p>My Shop</p>
             </Link>
             <div>
-                {CartList.length === 0 ? (
+                {cartList && cartList.length === 0 ? (
                     <p className="cart-vide">Votre panier est vide</p>
                 ) : (
                     <ul>
-                        {CartList.map((product) => (
+                        {cartList && cartList.map((product) => (
                             <li key={product.id}>
                                 <CartItem product={product} />
                             </li>

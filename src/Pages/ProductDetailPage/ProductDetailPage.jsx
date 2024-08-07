@@ -12,7 +12,12 @@ export default function ProductDetailPage() {
     const { id } = useParams();
     const { products } = useContext(ProductContext);
     const product = products.find(p => p.id === parseInt(id));
-    const { addToListCart } = useContext(CartContext);
+    const { cartList, addToListCart, removeFromListCart } = useContext(CartContext);
+
+    // Vérifie si le produit est déjà dans le panier
+    const isInCart = () => {
+        return cartList && cartList.some(cartItem => cartItem.id === product.id);
+    };
 
     return (
         <>
@@ -43,13 +48,21 @@ export default function ProductDetailPage() {
                                 <QuantitySelector />
                             </div>
                             <div className="flex justify-center">
-                                <Button type="addToCart" onClick={() => addToListCart(product)}>Add to Cart</Button>
+                                {isInCart() ? (
+                                    <Button type="removeFromCart" onClick={() => removeFromListCart(product)}>
+                                        Remove from Cart
+                                    </Button>
+                                ) : (
+                                    <Button type="addToCart" onClick={() => addToListCart(product)}>
+                                        Add to Cart
+                                    </Button>
+                                )}
                             </div>
                         </div>
                     </div>
                 </div>
             ) : (
-                <p>Désolé, Ce produit n'éxiste pas.</p>
+                <p>Désolé, Ce produit n'existe pas.</p>
             )}
         </>
     );
