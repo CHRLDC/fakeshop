@@ -1,22 +1,41 @@
 import { CartContext } from '../../Context/CartContext';
-import { useContext } from 'react';
+import Order from '../Order/Order';
+import { useContext, useState } from 'react';
 import Button from '../Buttons/Button';
 import './TabBarCart.css';
 
 export default function TabBarCart() {
-
     // Donner la liste du panier
     const { cartList } = useContext(CartContext);
+
+    // Donner le nombre de produit dans le panier (quantity inclus)
+    const productNumber = cartList && cartList.reduce((acc, product) => acc + product.quantity, 0);
+    // Donner le prix total (prix * quantité)
+    const cartTotal = cartList && cartList.reduce((acc, product) => acc + product.price * product.quantity, 0);
+    // Pluriel ou singulier
+    const articleText = productNumber > 1 ? "articles" : "article";
+    // Afficher le formulaire de paiement (exo: sentoserver)
+    const [isOrder, setIsOrder] = useState(false);
+
+    // Function pour ouvrir le paiement (exo: sentoserver)
+    const handlePaymentClick = () => {
+        setIsOrder(true);
+    };
+
+    // Function pour fermer le paiement (exo: sentoserver)
+    const handleCloseOrder = () => {
+        setIsOrder(false);
+    };
 
     return (
         <div className="container-tapbarcart">
             <div className="flex justify-between">
                 <p><b>Total:</b></p>
-                <p className="price-unit">{cartList.length} articles</p>
-                <p className="price-total">{cartList.reduce((acc, product) => acc + product.price, 0)}$</p>
+                <p className="price-unit">{productNumber.toFixed(0)} {articleText}</p>
+                <p className="price-total">{cartTotal.toFixed(2)}$</p>
             </div>
             <div>
-                <p className="price-unit w70 mT20"><i>Transport is free ! You will receive your products under 4 days</i></p>
+                <p className="price-unit w70 mT20"><i>Transport is free! You will receive your products under 4 days</i></p>
             </div>
             <div className="w100 flex justify-between">
                 <ul className="flex gap3">
@@ -24,8 +43,9 @@ export default function TabBarCart() {
                     <li className="picto-cart mastercard"></li>
                     <li className="picto-cart paypal"></li>
                 </ul>
-                <Button type="payment">Payment</Button>
+                <Button type="payment" onClick={handlePaymentClick}>Payment</Button>
             </div>
+            {isOrder && <Order onClose={handleCloseOrder} />}
         </div>
     );
 }

@@ -10,7 +10,7 @@ export default function ProductProvider({ children }) {
         // Fonction pour récupérer les produits de l'API
         const fetchProducts = async () => {
             try {
-                const response = await fetch('https://fakestoreapi.com/products?limit=10');
+                const response = await fetch('https://fakestoreapi.com/products?limit=20');
                 const data = await response.json();
                 setProducts(data);
             } catch (error) {

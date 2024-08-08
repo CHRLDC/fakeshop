@@ -9,8 +9,6 @@ import TabBar from '../../Components/TabBar/TabBar';
 export default function CartPage() {
     // Donner la liste du panier
     const { cartList } = useContext(CartContext);
-    console.log(cartList);
-
     return (
         <div className="container-cart">
             <Link to="/" className="top-bar flex gap16">

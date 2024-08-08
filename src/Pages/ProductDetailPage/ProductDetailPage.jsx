@@ -46,7 +46,7 @@ export default function ProductDetailPage() {
                         <div className="flex direction column justify-center gap32 mT40">
                             <div className="w100 flex justify-between">
                                 <p>Quantity:</p>
-                                <QuantitySelector />
+                                <QuantitySelector productId={product.id} />
                             </div>
                             <div className="flex justify-center">
                                 {isInCart() ? (

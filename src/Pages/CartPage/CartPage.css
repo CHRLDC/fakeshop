@@ -1,4 +1,6 @@
 .container-cart ul {
     list-style: none;
     padding: 47px 0;
+    max-height: 70vh;
+    overflow-y: auto;
 }
