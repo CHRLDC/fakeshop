@@ -13,8 +13,9 @@ export default function TabBar() {
     return (
         <div className="container-TabBar flex justify-between">
             <Link to="/" className="tab-picto home"></Link>
-            <Link to="/cart" className="tab-picto cart"></Link>
-            <span className="tab-notif">{productNumer.toFixed(0)}</span>
+            <Link to="/cart" className="tab-picto cart">
+                <span className="tab-notif">{productNumer.toFixed(0)}</span>
+            </Link>
             <span className="tab-picto profil"></span>
             <span className="tab-picto parametre"></span>
         </div>

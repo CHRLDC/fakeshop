@@ -26,8 +26,8 @@
 
 .tab-notif {
     position: absolute;
-    top: 28px;
-    left: 138px;
+    bottom: -8px;
+    left: 20px;
     color: var(--color-yellow);
     border-radius: 50%;
     padding: 2px 5px;

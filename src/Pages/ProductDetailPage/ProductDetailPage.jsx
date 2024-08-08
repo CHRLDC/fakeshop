@@ -1,4 +1,5 @@
 import { Link, useParams } from 'react-router-dom';
+import TabBar from '../../Components/TabBar/TabBar';
 import { ProductContext } from '../../Context/ProductContext';
 import Button from '../../Components/Buttons/Button';
 import { useContext } from 'react';
@@ -58,6 +59,10 @@ export default function ProductDetailPage() {
                                         Add to Cart
                                     </Button>
                                 )}
+                            </div>
+                            {/* Barre d'onglets en bas de la page */}
+                            <div className="container-tab-bar">
+                                <TabBar />
                             </div>
                         </div>
                     </div>
