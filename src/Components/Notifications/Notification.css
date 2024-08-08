@@ -2,7 +2,7 @@
     width: 300px;
     text-align: center;
     position: fixed;
-    top: 350px;
+    top: 5%;
     right: 50%;
     transform: translateX(50%);
     background-color: #333;

@@ -1,3 +1,7 @@
+/**
+ * Composant Liste de produit
+ */
+
 import React from 'react';
 import ProductItem from '../ProductItem/ProductItem';
 import './ProductList.css';

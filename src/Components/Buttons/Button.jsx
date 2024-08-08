@@ -1,8 +1,12 @@
-
+/**
+ * Composant Bouton
+ */
+import React from 'react';
 import './Button.css';
 
-export default function Button({ type, children, onClick }) {
+export default function Button({ type, children, onClick, isYellow }) {
 
+    // Récupérer le type du bouton
     const getButtonType = () => {
         switch (type) {
             case 'cta':
@@ -20,13 +24,15 @@ export default function Button({ type, children, onClick }) {
         }
     };
 
+    // Afficher l'icône correspondante
     const showIcon = ['addToCart', 'payment', 'removeFromCart'].includes(type);
 
     return (
         <button
-            className={`flex gap8 ${getButtonType()}`}
+            className={`flex gap8 ${getButtonType()} ${isYellow ? 'button-yellow' : ''}`}
             onClick={onClick}
         >
+            {/* Si le bouton a un icône, l'afficher */}
             {showIcon && <span className={`picto-button picto-${type}`} />}
             <span className="button-text">{children}</span>
         </button>

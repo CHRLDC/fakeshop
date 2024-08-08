@@ -1,3 +1,10 @@
+/**
+ * Composant CartItem, pour la page CartPage.jsx
+ * Affiche la liste des produits du panier (avec les montants et les quantités)
+ * Ajoute ou supprime un produit du panier (via QuantitySelector)
+ * Rend: CartItem
+ */
+
 import QuantitySelector from '../QuantitySelector/QuantitySelector.jsx';
 import { Link } from 'react-router-dom';
 import './CartItem.css';

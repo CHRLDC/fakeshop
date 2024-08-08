@@ -1,3 +1,7 @@
+/**
+ * Composant de l'interface de commande (pour l'exercice)
+ */
+
 import React from 'react';
 import { useContext } from 'react';
 import { CartContext } from '../../Context/CartContext';

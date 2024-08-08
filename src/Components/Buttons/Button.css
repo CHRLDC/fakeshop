@@ -18,28 +18,27 @@
     background-color: var(--color-yellow);
 }
 
-
 .button.category {
     background-color: var(--color-brown);
     width: 100px;
     padding: 14px 32px;
 }
 
-
 .button.add-to-cart {
     background-color: var(--color-yellow);
 }
-
 
 .button.payment {
     background-color: var(--color-yellow);
 }
 
-
 .button.remove-from-cart {
     background-color: var(--color-lightgrey);
 }
 
+.button-yellow {
+    background-color: var(--color-yellow) !important;
+}
 
 .picto-button {
     background-size: auto 100%;

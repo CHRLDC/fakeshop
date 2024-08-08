@@ -24,6 +24,14 @@
     background-image: url('../../assets/img/Settings.png');
 }
 
+.tab-picto.active.home {
+    background-image: url('../../assets/img/HomeYellow.png');
+}
+
+.tab-picto.active.cart {
+    background-image: url('../../assets/img/Shopping-CartYellow.png');
+}
+
 .tab-notif {
     position: absolute;
     bottom: -8px;

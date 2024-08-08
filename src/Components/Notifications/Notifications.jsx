@@ -1,3 +1,7 @@
+/**
+ * Composant de notification
+ * Rend: Notification
+ */
 import React, { useEffect } from 'react';
 import './Notification.css';
 

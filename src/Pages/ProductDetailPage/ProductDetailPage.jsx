@@ -1,3 +1,9 @@
+/**
+ * Page de detail d'un produit (a besoin de l'id du produit)
+ * Affiche les informations d'un produit
+ * Ajoute ou supprime un produit du panier
+ */
+
 import { Link, useParams } from 'react-router-dom';
 import TabBar from '../../Components/TabBar/TabBar';
 import { ProductContext } from '../../Context/ProductContext';
@@ -10,9 +16,13 @@ import { CartContext } from '../../Context/CartContext';
 
 export default function ProductDetailPage() {
 
+    // Récupère l'id du produit dans l'url
     const { id } = useParams();
+    // Récupérer la liste des produits
     const { products } = useContext(ProductContext);
+    // Trouver le produit correspondant
     const product = products.find(p => p.id === parseInt(id));
+    // Récupérer la liste du panier et les fonction pour ajouter ou supprimer un produit
     const { cartList, addToListCart, removeFromListCart } = useContext(CartContext);
 
     // Vérifie si le produit est déjà dans le panier
@@ -27,7 +37,9 @@ export default function ProductDetailPage() {
                 <span className="picto-back"></span>
                 <p>My Shop</p>
             </Link>
+            {/* Si le produit existe */}
             {product ? (
+                // Afficher les détails du produit
                 <div className="container-product-detail">
                     <div className="container-img-product-detail">
                         <img src={product.image} alt={product.title} />
@@ -37,7 +49,8 @@ export default function ProductDetailPage() {
                             <h2>{product.title}</h2>
                             <p className="price-item-white">{product.price}$</p>
                         </div>
-                        <div className="flex gap16">
+                        <div className="flex gap8">
+                            {/* Donner la notation pour le composant 5étoiles */}
                             <Rating rating={product.rating.rate} />
                             <p className="rating-text">{`(${product.rating.count} ratings)`}</p>
                         </div>
@@ -47,9 +60,11 @@ export default function ProductDetailPage() {
                         <div className="flex direction column justify-center gap32 mT40">
                             <div className="w100 flex justify-between">
                                 <p>Quantity:</p>
+                                {/* D0nner l'id du produit au composant */}
                                 <QuantitySelector productId={product.id} />
                             </div>
                             <div className="flex justify-center">
+                                {/* Si le produit est déjà dans le panier, on affiche le bouton pour le supprimer, sinon le bouton pour l'ajouter */}
                                 {isInCart() ? (
                                     <Button type="removeFromCart" onClick={() => removeFromListCart(product)}>
                                         Remove from Cart

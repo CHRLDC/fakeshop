@@ -1,3 +1,11 @@
+/**
+ * Page d'accueil
+ * Affiche la liste de tous les produits
+ * Filtre les produits en fonction de la catégorie
+ * Filtre les produits en fonction du terme de recherche
+ * Gère l'affichage de la barre de recherche
+ */
+
 import React, { useContext, useState, useEffect } from 'react';
 import ProductList from '../../Components/ProductList/ProductList';
 import { ProductContext } from '../../Context/ProductContext';
@@ -25,7 +33,7 @@ export default function HomePage() {
         setShowSearchBar(!showSearchBar);
     };
 
-    // Met à jour les produits filtrés
+    // Met à jour la liste des produits, filtrés
     useEffect(() => {
         setFilteredProducts(products);
     }, [products]);
@@ -38,6 +46,7 @@ export default function HomePage() {
         } else {
             // Rechercher dans le titre si le terme existe
             const filtered = products.filter(product =>
+                // Convertir le terme de recherche en minuscules et rechercher dans le titre
                 product.title && product.title.toLowerCase().includes(searchTerm.toLowerCase())
             );
             setFilteredProducts(filtered);
@@ -59,6 +68,7 @@ export default function HomePage() {
 
     // Vérifier si le filtre est vide
     useEffect(() => {
+        // Si le filtre est vide, afficher tous les produits
         setEmptyFiltre(filteredProducts.length === 0);
     }, [filteredProducts]);
 
@@ -79,14 +89,14 @@ export default function HomePage() {
             </div>
             {/* Boutons de catégories pour filtrer les produits */}
             <div className="caroussel-button gap16">
-                <Button type="category" onClick={() => filterByCategory('All')}>All</Button>
+                <Button type="category" isYellow onClick={() => filterByCategory('All')}>All</Button>
                 <Button type="category" onClick={() => filterByCategory("women's clothing")}>Women</Button>
                 <Button type="category" onClick={() => filterByCategory("men's clothing")}>Men</Button>
                 <Button type="category" onClick={() => filterByCategory('jewelery')}>Jewellery</Button>
                 <Button type="category" onClick={() => filterByCategory('electronics')}>Electronics</Button>
             </div>
             {/* Barre de recherche affichée si showSearchBar = true */}
-            <div className="flex justify-center">
+            <div className="flex justify-center relative">
                 {showSearchBar && <SearchBar onClose={toggleSearchBar} onSearch={handleSearch} />}
             </div>
             {/* Liste des produits filtrés, All par défaut */}
